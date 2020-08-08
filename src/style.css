@@ -1,0 +1,122 @@
+body {
+  font-family: "Asap";
+  text-align: center;
+}
+h1 {
+  font-size: 36px;
+  color: #204051;
+  font-weight: 700;
+  margin: 0;
+  line-height: 30px;
+}
+h2 {
+  font-size: 18px;
+  color: #84a9ac;
+}
+hr {
+  width: 35px;
+  background: #204051;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+p {
+  margin-bottom: 0rem;
+}
+
+.container {
+  text-align: center;
+}
+.form-group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  text-align: center;
+}
+.form-control {
+  width: 30%;
+}
+.btn-primary {
+  margin-left: 20px;
+}
+.card {
+  text-align: center;
+  top: 50px;
+  background: rgba(231, 223, 213, 0.3);
+  border: 1px solid rgba(32, 64, 81, 0.5);
+}
+
+.col {
+  text-align: center;
+}
+.fa-sun {
+  color: #204051;
+  font-size: 35px;
+}
+.weather p {
+  font-size: 35px;
+  color: #204051;
+}
+.temperature p {
+  position: relative;
+  top: -25px;
+  font-size: 100px;
+  color: #3b6978;
+}
+.btn-primary {
+  background: #3b6978;
+  border-color: #3b6978;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #628793;
+  border-color: #628793;
+}
+.col h3 {
+  color: #84a9ac;
+  font-size: 18px;
+}
+
+.fa-cloud-showers-heavy,
+.fa-cloud-sun,
+.fa-cloud-showers-heavy,
+.fa-wind,
+.fa-cloud {
+  font-size: 30px;
+  color: #204051;
+  margin: 10px;
+}
+.col p {
+  color: #204051;
+}
+.min-temperature {
+  color: rgba(32, 64, 81, 0.6);
+}
+.row .col-3 {
+  text-align: left;
+  top: 40px;
+}
+.row .min-max-temperature {
+  text-align: center;
+  top: 40px;
+  font-size: 25px;
+}
+.description {
+  color: #204051;
+  font-weight: 700;
+}
+
+.col:hover {
+  background: rgba(231, 223, 213, 0.7);
+  border-radius: 10px;
+}
+#celsius-temperature,
+.convert-temperature,
+#fahrenheit-temperature {
+  font-size: 25px;
+  position: relative;
+  top: -50px;
+}
+#show-temperature {
+  font-size: 100px;
+  color: #3b6978;
+}

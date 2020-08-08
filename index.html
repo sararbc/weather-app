@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+  , initial-scale=1.0"
+    />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/4a5f711335.js" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <form id="search-form">
+            <div class="form-group justify-content-center">
+              <input
+              type="text"
+              class="form-control"
+              placeholder="Enter your city"
+              id="input-city"
+              />
+              <span>
+                <input type="submit" value="Search" class="btn btn-primary" id="search-city"/>
+              </span>
+              <button class="btn btn-primary secondary">📍 Current Location</button>
+            </div>
+          </form>
+          <h1>Porto</h1>
+          <h2 id="display-date">Monday, 22:00</h2>
+          <div class="row">
+            <div class="col-6">
+              <div class="weather">
+                <p>
+                  <i class="fas fa-sun"></i> 
+                  Sunny
+                </p>
+              </div>
+              <div class="temperature">
+                <p><span id="show-temperature">25</span><a href="#" id="celsius-temperature">°C</a><span class="convert-temperature"> |</span><a href="#" id="fahrenheit-temperature">°F</a></p>
+              </div>
+            </div>
+            <div class="col-3 min-max-temperature">
+              <p>
+                28°
+                <hr>
+                <spanc class="min-temperature">20°</span>
+                </p>
+              </div>
+             <div class="col-3">
+               <p>
+                 <span class="description" >Precipitation:</span><span id="show-precipitation">   6% </span>
+                <br>  
+                <span class="description" >Humidity:</span><span id="show-humidity">   90% </span>  
+                <br>
+                <span class="description" >Wind:</span><span id="show-wind">   11 km/h</span>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h3>
+                Tuesday
+              </h3>
+              <i class="fas fa-cloud-showers-heavy"></i>
+              <p>
+                28°
+                <hr>
+                <span class="min-temperature"> 20°</span>
+              </p>
+            </div>
+            <div class="col">
+              <h3>
+                Wednesday
+              </h3>
+              <i class="fas fa-cloud-sun"></i>
+              <p>
+                28°
+                <hr>
+                <span class="min-temperature"> 20°</span>
+              </p>
+            </div>
+            <div class="col">
+              <h3>
+                Thursday 
+              </h3>
+              <i class="fas fa-cloud-showers-heavy"></i>
+              <p>
+                28°
+                <hr>
+                <span class="min-temperature"> 20°</span>
+              </p>
+            </div>
+            <div class="col">
+              <h3>
+                Friday
+              </h3>
+              <i class="fas fa-wind"></i>
+              <p>
+                28°
+                <hr>
+                <span class="min-temperature"> 20°</span>
+              </p>
+            </div>
+            <div class="col">
+              <h3>
+                Saturday
+              </h3>
+              <i class="fas fa-cloud"></i>
+              <p>
+                28°
+                <hr>
+                <span class="min-temperature"> 20°</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+  </html>
+  
