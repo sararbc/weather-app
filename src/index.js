@@ -1,10 +1,11 @@
 //Display Current Time
-function formatDate(currentTime) {
+function formatDate(timestamp) {
+  let currentTime = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
     "Tuesday",
-    "Wedneday",
+    "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
@@ -23,10 +24,33 @@ function formatDate(currentTime) {
   return `${day}, ${hour}:${min}`;
 }
 
-let dateElement = document.querySelector("#display-date");
-let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
+//Show temperature with current location
+function displayWeather(response) {
+  let dateElement = document.querySelector("#display-date");
+  let currentTime = new Date();
+  let iconElement = document.querySelector("#icon");
 
+  document.querySelector("#show-temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#show-humidity").innerHTML = ` ${Math.round(
+    response.data.main.humidity
+  )}%`;
+  document.querySelector("#show-wind").innerHTML = ` ${Math.round(
+    response.data.wind.speed
+  )} km/h`;
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#weather-description").innerHTML =
+    response.data.weather[0].description;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
 //Display weather of searched city
 function searchCity(city) {
   let apiKey = "62c0de0f03a654039e2827dd4c7641ef";
@@ -64,19 +88,6 @@ let temperatureFahrenheit = document.querySelector("#fahrenheit-temperature");
 temperatureCelsius.addEventListener("click", showTemperatureCelsius);
 temperatureFahrenheit.addEventListener("click", showTemperatureFahrenheit);
 
-//Show temperature with current location
-function displayWeather(response) {
-  document.querySelector("#show-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#show-humidity").innerHTML = ` ${Math.round(
-    response.data.main.humidity
-  )}%`;
-  document.querySelector("#show-wind").innerHTML = ` ${Math.round(
-    response.data.wind.speed
-  )} km/h`;
-  document.querySelector("h1").innerHTML = response.data.name;
-}
 function handlePosition(position) {
   let apiKey = "62c0de0f03a654039e2827dd4c7641ef";
 
