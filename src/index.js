@@ -29,6 +29,10 @@ function displayWeather(response) {
   let dateElement = document.querySelector("#display-date");
   let currentTime = new Date();
   let iconElement = document.querySelector("#icon");
+  let minTemperature = document.querySelector("#min-temperature");
+  let maxTemperature = document.querySelector("#max-temperature");
+
+  console.log("");
 
   document.querySelector("#show-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -50,6 +54,9 @@ function displayWeather(response) {
   );
 
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  minTemperature.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
+  maxTemperature.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
 }
 //Display weather of searched city
 function searchCity(city) {
