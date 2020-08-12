@@ -22,6 +22,10 @@ hr {
 p {
   margin-bottom: 0rem;
 }
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
 
 .container {
   text-align: center;
