@@ -32,7 +32,7 @@ function displayWeather(response) {
   let minTemperature = document.querySelector("#min-temperature");
   let maxTemperature = document.querySelector("#max-temperature");
 
-  console.log("");
+  celsiusTemperature = response.data.main.temp;
 
   document.querySelector("#show-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -76,17 +76,18 @@ searchForm.addEventListener("submit", handleSubmit);
 //Conversion
 function showTemperatureCelsius() {
   event.preventDefault();
+  temperatureCelsius.classList.add("active");
+  temperatureFahrenheit.classList.remove("active");
   let showTemperature = document.querySelector("#show-temperature");
-  let temperature = showTemperature.innerHTML;
-  temperature = Number(temperature);
-  showTemperature.innerHTML = Math.round((temperature - 32) * (5 / 9));
+  showTemperature.innerHTML = Math.round(celsiusTemperature);
 }
 function showTemperatureFahrenheit() {
   event.preventDefault();
+  temperatureCelsius.classList.remove("active");
+  temperatureFahrenheit.classList.add("active");
   let showTemperature = document.querySelector("#show-temperature");
-  let temperature = showTemperature.innerHTML;
-  temperature = Number(temperature);
-  showTemperature.innerHTML = Math.round(temperature * 1.8 + 32);
+  let fahTemperature = Math.round(celsiusTemperature * 1.8 + 32);
+  showTemperature.innerHTML = fahTemperature;
 }
 
 let temperatureCelsius = document.querySelector("#celsius-temperature");
@@ -105,6 +106,8 @@ function handlePosition(position) {
 
   axios.get(apiUrl).then(displayWeather);
 }
+
+let celsiusTemperature = null;
 
 function activeLocation() {
   event.preventDefault();

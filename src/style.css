@@ -62,6 +62,17 @@ ul {
   font-size: 25px;
   color: #204051;
 }
+.temperature .active {
+  color: rgba(59, 105, 120, 0.8);
+  cursor: default;
+}
+.temperature a {
+  color: rgba(59, 105, 120);
+}
+.temperature .active:hover {
+  text-decoration: none;
+}
+
 .temperature p {
   position: relative;
   top: -25px;
