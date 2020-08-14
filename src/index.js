@@ -12,6 +12,12 @@ function formatDate(timestamp) {
   ];
 
   let day = days[currentTime.getDay()]; //índice do dia da semana
+
+  return `${day}, ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let currentTime = new Date(timestamp);
   let hour = currentTime.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -21,7 +27,7 @@ function formatDate(timestamp) {
     min = `0${min}`;
   }
 
-  return `${day}, ${hour}:${min}`;
+  return `${hour}:${min}`;
 }
 
 //Show temperature with current location
@@ -58,11 +64,41 @@ function displayWeather(response) {
   minTemperature.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
   maxTemperature.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
 }
+//Forecast weather
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h3>
+      ${formatHours(forecast.dt * 1000)}
+      </h3>
+      <img src="http://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" alt="">
+      <p>
+      ${Math.round(forecast.main.temp_max)}°
+      <hr>
+        <span class="min-temperature">${Math.round(
+          forecast.main.temp_min
+        )}°</span>
+      </p>
+    </div>`;
+  }
+}
 //Display weather of searched city
 function searchCity(city) {
   let apiKey = "62c0de0f03a654039e2827dd4c7641ef";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 function handleSubmit(event) {
   event.preventDefault();
@@ -117,4 +153,4 @@ function activeLocation() {
 let getLocation = document.querySelector("button");
 getLocation.addEventListener("click", activeLocation);
 
-searchCity("Porto");
+searchCity("Paris");
