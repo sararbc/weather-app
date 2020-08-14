@@ -116,8 +116,8 @@ ul {
 .description {
   color: #204051;
   font-weight: 700;
+  margin-left: 10px;
 }
-
 .col-2:hover {
   background: rgba(231, 223, 213, 0.7);
   border-radius: 10px;
@@ -140,4 +140,8 @@ ul {
 
 #weather-description {
   text-transform: capitalize;
+}
+.fa-tint,
+.fa-wind {
+  color: #204051;
 }
